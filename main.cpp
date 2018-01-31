@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	{
         printf("Faild\n");
 	}
-		if(mLock1->obtain())
+	if(mLock1->obtain())
 	{
 		printf("OK!\n");
 	}
@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 	{
         printf("Faild\n");
 	}
+	instant->clearLock("/home/spf/1.lock");
 	if(mLock->isLocked())
 	{
 		printf("isLocked!\n");

@@ -19,13 +19,9 @@ Lock* NativeFSLockFactory::makeLock(std::string lockName) {
 }
 
 void NativeFSLockFactory::clearLock(std::string lockName) throw (exception) {
-	/*
-	if(lockDir != NULL){
-		makeLock(lockName).release();
-		if (lockPrefix != NULL) {
-			lockName = lockPrefix + "-" + lockName;
-		}
-		lockDir.close();
-	}
-	*/
+	if (lockPrefix.c_str() != "")
+		lockName = lockPrefix  + lockName;
+	Lock*   mLock = makeLock(lockName.c_str());
+	mLock->release();
+	printf("aaaaaa");
 }
